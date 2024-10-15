@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
 import ApplicationLogo from '@/components/ApplicationLogo'
-import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Page = () => {
     const { register } = useAuth({

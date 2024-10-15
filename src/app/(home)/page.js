@@ -1,4 +1,4 @@
-import Footer from "@/components/footer"
+import Footer from "@/components/Footer"
 import HomeHeroSection from "@/components/Home/HomeHeroSection"
 import Link from 'next/link'
 
