@@ -1,21 +1,23 @@
-import { Nunito } from 'next/font/google'
 import '@/app/global.css'
+import { Toaster } from "@/components/ui/sonner"
 
-const nunitoFont = Nunito({
-    subsets: ['latin'],
-    display: 'swap',
-})
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang="en" className={nunitoFont.className}>
-            <body className="antialiased">{children}</body>
+        <html lang="en">
+            <link rel="icon" type="image/svg+xml" href="/bluegrass-archives-favicon.png" />
+            <body className="antialiased">
+                {children}
+                <Toaster richColors position="top-center" toastOptions={{
+                    duration: 4000
+                }} />
+            </body>
         </html>
     )
 }
 
 export const metadata = {
-    title: 'Laravel',
+    title: 'Bluegrass Archives',
 }
 
 export default RootLayout

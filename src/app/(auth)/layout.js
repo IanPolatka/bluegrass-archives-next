@@ -1,26 +1,22 @@
-import Link from 'next/link'
-import AuthCard from '@/app/(auth)/AuthCard'
-import ApplicationLogo from '@/components/ApplicationLogo'
+import '@/app/global.css'
+import { Toaster } from "@/components/ui/sonner"
 
-export const metadata = {
-    title: 'Laravel',
-}
-
-const Layout = ({ children }) => {
+const AppLayout = ({ children }) => {
     return (
-        <div>
-            <div className="text-gray-900 antialiased">
-                <AuthCard
-                    logo={
-                        <Link href="/">
-                            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                        </Link>
-                    }>
-                    {children}
-                </AuthCard>
-            </div>
-        </div>
+        // <html lang="en">
+        //     <body className="antialiased">
+        //         {children}
+        //         <Toaster richColors position="top-center" />
+        //     </body>
+        // </html>
+        <>
+        {children}
+        </>
     )
 }
 
-export default Layout
+export const metadata = {
+    title: 'Bluegrass Archives',
+}
+
+export default AppLayout
