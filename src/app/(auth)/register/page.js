@@ -13,7 +13,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const Page = () => {
     const { register } = useAuth({
         middleware: 'guest',
-        redirectIfAuthenticated: '/dashboard',
+        redirectIfAuthenticated: '/',
     })
 
     const [name, setName] = useState('')
