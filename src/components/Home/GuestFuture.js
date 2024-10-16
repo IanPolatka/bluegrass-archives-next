@@ -12,8 +12,8 @@ export default function GuestFuture() {
         getGames()
         const interval = setInterval(() => {
             getGames()
-        }, 30000);
-        return () => clearInterval(interval);
+        }, 30000)
+        return () => clearInterval(interval)
     }, [])
 
     const getGames = () => {
@@ -29,13 +29,13 @@ export default function GuestFuture() {
     }
 
     function formatGameDate(value) {
-        const dateObj = new Date(value);
+        const dateObj = new Date(value)
         dateObj.setDate(dateObj.getDate() + 1)
-        const dayName = dateObj.toLocaleString("default", { weekday: "long" });
+        const dayName = dateObj.toLocaleString("default", { weekday: "long" })
         dateObj.setDate(dateObj.getDate() - 1)
-        const day = dateObj.getDate() + 1;
-        const month = dateObj.toLocaleString("default", { month: "long" });
-        const year = dateObj.getFullYear();
+        const day = dateObj.getDate() + 1
+        const month = dateObj.toLocaleString("default", { month: "long" })
+        const year = dateObj.getFullYear()
     
         return (
             <div className="mb-4 font-semibold text-black">{dayName}, {month} {day}, {year}</div>

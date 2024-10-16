@@ -9,21 +9,17 @@ export default function ScheduleTeamsDropdown() {
     const router = useRouter()
     const {slug, year} = useParams()
     const [teams, setTeams] = useState([])
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getTeams()
     }, [])
 
     const getTeams = () => {
-        setLoading(true)
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams/kentucky`)
             .then(({data}) => {
                 setTeams(data.data)
-                setLoading(false)
             })
             .catch(() => {
-                setLoading(false)
             })
     }
 

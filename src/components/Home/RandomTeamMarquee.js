@@ -3,11 +3,10 @@
 import { useEffect, useState } from 'react'
 import axios from '@/lib/axios'
 import Link from 'next/link'
-import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee"
 import Image from 'next/image'
 
 function RandomTeamMarquee() {
-    const [randomTeamsLoading, setRandomTeamsLoading] = useState(false)
     const [randomTeamsFirst, setRandomTeamsFirst] = useState([])
     const [randomTeamsSecond, setRandomTeamsSecond] = useState([])
     const [randomTeamsThird, setRandomTeamsThird] = useState([])
@@ -18,16 +17,15 @@ function RandomTeamMarquee() {
 
     // Guest Hero
     const getRandomTeams = () => {
-        setRandomTeamsLoading(true)
+
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams/random`)
             .then(({data}) => {
-                setRandomTeamsLoading(false)
                 setRandomTeamsFirst(data.data[0].first)
                 setRandomTeamsSecond(data.data[0].second)
                 setRandomTeamsThird(data.data[0].third)
             })
             .catch(() => {
-                setRandomTeamsLoading(false)
+
             })
     }
     

@@ -10,10 +10,6 @@ async function getCoachSummary(id) {
         }
     })
 
-    if (!res.ok) {
-        notFound()
-    }
-
     return res.json()
 }
 
@@ -39,8 +35,8 @@ export default async function CoachSummary({ params }) {
                     <div className="lg:grid lg:grid-cols-12 lg:gap-8">
                         <div className="col-span-4 mb-4">
                             <div className="bg-white border border-gray-300 rounded-md">
-                                {coachSummary.data.map((game) => (
-                                    <div className="p-4 space-y-4 divide-y-[1px] divide-dashed divide-gray-300" key={game.Coach.id}>
+                                {coachSummary.data.map(({game, index}) => (
+                                    <div className="p-4 space-y-4 divide-y-[1px] divide-dashed divide-gray-300" key={index}>
                                         <div>
                                             <div className="text-sm text-gray-500">Coach Name</div>
                                             <h1 className="text-lg font-semibold">{game.Coach.name}</h1>
@@ -73,7 +69,7 @@ export default async function CoachSummary({ params }) {
                                 </div>
                                 <div className="divide-y-[1px] divide-dashed divide-gray-300">
                                     {teamsSummary.data.map((team, index) => (
-                                        <div className="flex grid items-center grid-cols-12 gap-4 px-4 py-4">
+                                        <div key={index} className="flex grid items-center grid-cols-12 gap-4 px-4 py-4">
                                             <div className="col-span-3">{team.Year.year}</div>
                                             <div className="flex items-center col-span-6 space-x-4">
                                                 <div>
@@ -93,18 +89,7 @@ export default async function CoachSummary({ params }) {
                                             <div className="col-span-3">{team.Wins} - {team.Losses}</div>
                                         </div>
                                     ))}
-                                 </div>
-
-                                {/* <Image
-                                    src={`${team.Team.logo}`}
-                                    height={48}
-                                    width={48}
-                                    alt={`${team.Team.name}`}
-                                    title={`${team.Team.name}`}
-                                /> */}
-
-
-                                
+                                 </div>                                
                             </div>
                         </div>
                     </div>

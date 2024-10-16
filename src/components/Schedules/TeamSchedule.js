@@ -11,7 +11,6 @@ import Image from 'next/image'
 
 export default function TeamSchedule({params}) {
     const {slug, year} = useParams()
-    // const [games, setGames] = useState({})
     const [games, setGames] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -33,9 +32,9 @@ export default function TeamSchedule({params}) {
 
     function formatDate(value) {
         dayjs.extend(advancedFormat)
-        const month = dayjs(value).format('MMM');
-        const day = dayjs(value).format('Do');
-        const year = dayjs(value).format('YYYY');
+        const month = dayjs(value).format('MMM')
+        const day = dayjs(value).format('Do')
+        const year = dayjs(value).format('YYYY')
         return (
             <div className="text-sm text-center leading-1"><div className="mr-4 text-gray-500 dark:text-gray-200">{month}</div><div className="mr-4 text-sm font-bold dark:text-white">{day}</div><div className="mr-4 text-gray-500 dark:text-gray-200">{year}</div></div>
         )
@@ -43,18 +42,18 @@ export default function TeamSchedule({params}) {
 
     function formatDateMobile(value) { 
         dayjs.extend(advancedFormat) 
-        const date =  dayjs(value).format('MMMM Do, YYYY');
+        const date =  dayjs(value).format('MMMM Do, YYYY')
         return (
             <div className="text-sm text-gray-500">{date}</div>
         )
     }
     
     function finalScore(homescore, awayscore) {
-        let score = '';
+        let score = ''
         if (parseInt(awayscore) > parseInt(homescore)) {
-            score = awayscore + '-' + homescore;
+            score = awayscore + '-' + homescore
         } else {
-            score = homescore + '-' + awayscore;
+            score = homescore + '-' + awayscore
         }
     
         return score;
@@ -115,7 +114,7 @@ export default function TeamSchedule({params}) {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 
     if (loading) return (

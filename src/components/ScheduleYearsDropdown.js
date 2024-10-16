@@ -9,21 +9,17 @@ export default function ScheduleYearsDropdown() {
     const router = useRouter()
     const {slug, year} = useParams()
     const [years, setYears] = useState([])
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getYears()
     }, [])
 
     const getYears = () => {
-        setLoading(true)
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/years`)
             .then(({data}) => {
                 setYears(data.data)
-                setLoading(false)
             })
             .catch(() => {
-                setLoading(false)
             })
     }
 

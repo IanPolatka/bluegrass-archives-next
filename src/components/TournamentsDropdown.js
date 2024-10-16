@@ -9,21 +9,17 @@ export default function TournamentsDropdown() {
     const router = useRouter()
     const {id} = useParams()
     const [tournaments, setTournaments] = useState([])
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getTournaments()
     }, [id])
 
     const getTournaments = () => {
-        setLoading(true)
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tournaments`)
             .then(({data}) => {
                 setTournaments(data.data)
-                setLoading(false)
             })
             .catch(() => {
-                setLoading(false)
             })
     }
 

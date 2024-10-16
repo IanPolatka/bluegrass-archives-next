@@ -1,9 +1,9 @@
 "use client"
 
-import { useToast } from "./ToastContext";
+import { useToast } from "./ToastContext"
 
 const ToastContainer = () => {
-  const { toasts, removeToast } = useToast();
+  const { toasts, removeToast } = useToast()
 
   return (
     <div>
@@ -14,7 +14,7 @@ const ToastContainer = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default ToastContainer;
+export default ToastContainer

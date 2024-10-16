@@ -40,10 +40,10 @@ async function getTournamentGames(id) {
 }
 
 function formatGameDate(value) {
-    const dateObj = new Date(value);
-    const day = dateObj.getDate() + 1;
-    const month = dateObj.toLocaleString("default", { month: "short" });
-    const year = dateObj.getFullYear();
+    const dateObj = new Date(value)
+    const day = dateObj.getDate() + 1
+    const month = dateObj.toLocaleString("default", { month: "short" })
+    const year = dateObj.getFullYear()
 
     return (
         <div className="text-xs text-gray-500">{month} {day}, {year}</div>
@@ -52,9 +52,9 @@ function formatGameDate(value) {
 
 function formatLocation(value) {
     if (value.length > 14) {
-        return value.substring(0, 14) + '...';
+        return value.substring(0, 14) + '...'
     } else {
-        return value;
+        return value
     }
 }
 
@@ -105,7 +105,7 @@ export default async function Tournament({ params }) {
 
                                     }
 
-                                    {tournamentRounds.data.map((round, index) => {
+                                    {tournamentRounds.data.map((round) => {
                                         return (
                                             <>
                                                 <ul key={round} className="z-10 flex flex-col justify-around w-1/5 mx-8" id={round}>

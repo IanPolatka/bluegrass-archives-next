@@ -11,7 +11,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
@@ -23,8 +22,8 @@ export default function TeamSearchModal({buttonType}) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    getTeams();
-  }, [searchTerm]);
+    getTeams()
+  }, [searchTerm])
   
   const getTeams = () => {
     axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams/search-kentucky?search=${searchTerm}`)

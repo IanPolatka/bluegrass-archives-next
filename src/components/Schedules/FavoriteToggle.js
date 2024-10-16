@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { Toggle } from "@/components/ui/toggle"
-import { FontBoldIcon } from "@radix-ui/react-icons"
 import { useParams } from 'next/navigation'
 import React from 'react'
 import axios from '@/lib/axios'
@@ -15,12 +14,12 @@ function FavoriteToggle() {
 
     function toTitleCase(str) {
         return str.replace(/\w\S*/g, function(txt){
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
         });
     }
 
     useEffect(() => {
-        checkFavorites();
+        checkFavorites()
     }, [])
 
     function checkFavorites() {
@@ -44,7 +43,7 @@ function FavoriteToggle() {
                 toast.success(`${toTitleCase(slug.replaceAll("-", " "))} has been added as one of your favorites`)
             })
             .catch(() => {
-                checkFavorites();
+                checkFavorites()
             })
     }
 
@@ -71,9 +70,9 @@ function FavoriteToggle() {
         <>
             {favorite.length > 0 &&
                 favorite[0].Favorite == 'yes' ?
-                    <Toggle onClick={(e) => {removeFromFavorites(e, favorite[0].Team.id);}} aria-label="Unfavorite Team" className="flex items-center justify-center w-24 h-8 text-xs font-semibold uppercase border border-transparent rounded xl:ml-4 text-emerald-600 bg-emerald-600/10">Following</Toggle>
+                    <Toggle onClick={(e) => {removeFromFavorites(e, favorite[0].Team.id)}} aria-label="Unfavorite Team" className="flex items-center justify-center w-24 h-8 text-xs font-semibold uppercase border border-transparent rounded xl:ml-4 text-emerald-600 bg-emerald-600/10">Following</Toggle>
                 :
-                    <Toggle onClick={(e) => {addToFavorites(e, favorite[0].Team.id);}} aria-label="Favorite Team" className="flex items-center justify-center w-24 h-8 text-xs font-semibold text-black uppercase border border-gray-300 rounded xl:ml-4">Follow</Toggle>
+                    <Toggle onClick={(e) => {addToFavorites(e, favorite[0].Team.id)}} aria-label="Favorite Team" className="flex items-center justify-center w-24 h-8 text-xs font-semibold text-black uppercase border border-gray-300 rounded xl:ml-4">Follow</Toggle>
                 }
         </>
     )

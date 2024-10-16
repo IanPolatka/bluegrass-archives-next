@@ -18,10 +18,10 @@ function FavoriteTeamsModal({getGames}) {
     const [favorites, setFavorites] = useState([])
 
     useEffect(() => {
-        getTeams();
-        getFavoritesById();
-        getFavorites();
-    }, []);
+        getTeams()
+        getFavoritesById()
+        getFavorites()
+    }, [])
 
     const getTeams = () => {
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/teams/kentucky`)
@@ -75,9 +75,9 @@ function FavoriteTeamsModal({getGames}) {
                             <div className="space-y-3">
                             <div className="space-y-3 h-3/4">
                                 {teams.length > 0 ?
-                                    teams.map(team => {
+                                    teams.map((team, index) => {
                                         return (
-                                            <UserHeroFavorite team={team} favorites={favorites} favoriteIds={favoriteIds} getFavorites={getFavorites} getFavoritesById={getFavoritesById} getGames={getGames} />
+                                            <UserHeroFavorite key={index} team={team} favorites={favorites} favoriteIds={favoriteIds} getFavorites={getFavorites} getFavoritesById={getFavoritesById} getGames={getGames} />
                                         )
                                     })
                                 :

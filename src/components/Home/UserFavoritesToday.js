@@ -12,8 +12,8 @@ export default function UserFavoritesToday() {
         getGames()
         const interval = setInterval(() => {
             getGames()
-        }, 10000);
-        return () => clearInterval(interval);
+        }, 10000)
+        return () => clearInterval(interval)
     }, [])
 
     const getGames = () => {
@@ -29,13 +29,13 @@ export default function UserFavoritesToday() {
     }
 
     function formatGameDate(value) {
-        const dateObj = new Date(value);
+        const dateObj = new Date(value)
         dateObj.setDate(dateObj.getDate() + 1)
-        const dayName = dateObj.toLocaleString("default", { weekday: "long" });
+        const dayName = dateObj.toLocaleString("default", { weekday: "long" })
         dateObj.setDate(dateObj.getDate() - 1)
-        const day = dateObj.getDate() + 1;
-        const month = dateObj.toLocaleString("default", { month: "long" });
-        const year = dateObj.getFullYear();
+        const day = dateObj.getDate() + 1
+        const month = dateObj.toLocaleString("default", { month: "long" })
+        const year = dateObj.getFullYear()
     
         return (
             <div className="mb-4 font-semibold">{dayName}, {month} {day}, {year}</div>

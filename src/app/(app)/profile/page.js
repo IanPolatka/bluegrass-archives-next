@@ -1,5 +1,5 @@
-import UserInformation from "@/components/Profile/UserInformation";
-import UserPasswordUpdate from "@/components/Profile/UserPasswordUpdate";
+import UserInformation from "@/components/Profile/UserInformation"
+import UserPasswordUpdate from "@/components/Profile/UserPasswordUpdate"
 import BackToHomeButton from '@/components/BackToHomeButton'
 
 export default function Profile() {

@@ -11,49 +11,46 @@ import FavoriteTeamsModal from './FavoriteTeamsModal'
 export default function UserHeroSection({user}) {
     const [games, setGames] = useState([])
     const [favorites, setFavorites] = useState([])
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         getGames()
         getFavoritesById()
         const interval = setInterval(() => {
             getGames()
-        }, 10000);
-        return () => clearInterval(interval);
+        }, 10000)
+        return () => clearInterval(interval)
     }, [])
 
     const getGames = () => {
-        setLoading(true)
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/favorites/football/games`)
             .then(({data}) => {
                 setGames(data.data)
-                setLoading(false)
             })
             .catch(() => {
-                setLoading(false)
+
             })
     }
 
     const getFavoritesById = () => {
-        setLoading(true)
+
         axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/favorites/ids`)
             .then(({data}) => {
                 setFavorites(data.data)
-                setLoading(false)
+
             })
             .catch(() => {
-                setLoading(false)
+
             })
     }
 
     function formatGameDate(value) {
-        const dateObj = new Date(value);
+        const dateObj = new Date(value)
         dateObj.setDate(dateObj.getDate() + 1)
-        const dayName = dateObj.toLocaleString("default", { weekday: "long" });
+        const dayName = dateObj.toLocaleString("default", { weekday: "long" })
         dateObj.setDate(dateObj.getDate() - 1)
-        const day = dateObj.getDate() + 1;
-        const month = dateObj.toLocaleString("default", { month: "long" });
-        const year = dateObj.getFullYear();
+        const day = dateObj.getDate() + 1
+        const month = dateObj.toLocaleString("default", { month: "long" })
+        const year = dateObj.getFullYear()
     
         return (
             <div className="mb-4 font-semibold text-green-600">{dayName}, {month} {day}, {year}</div>
@@ -65,7 +62,7 @@ export default function UserHeroSection({user}) {
             <div className="space-y-4">
                 <div className="md:py-2 md:mx-8">
                     <h1 className="flex items-center mx-4 text-2xl font-semibold"><span className="mr-4 text-3xl">👋</span>Hello, {user.name}</h1>
-                    {games.length > 0 &&
+                    
                         <div className="m-4 my-4 bg-white border rounded-md shadow-md">
                             <div className="">
                                 <div className="m-4 space-y-2">
@@ -154,7 +151,7 @@ export default function UserHeroSection({user}) {
                                     </div>
                                 </div>
                             </div>
-                        }
+                        
                     </div>
                 </div>
             </div>

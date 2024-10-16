@@ -37,7 +37,7 @@ export default function UserInformation() {
         event.preventDefault()
         setIsLoading(true)
 
-        const userInformation = { name: name, email: email };
+        const userInformation = { name: name, email: email }
 
         axios.put(`/api/profile`, userInformation )
             .then((data) => {
@@ -49,7 +49,7 @@ export default function UserInformation() {
                 router.push('/profile')
             })
             .catch(error => {
-                const response = error.response;
+                const response = error.response
                 if (response && response.status === 422) {
                     setErrors(response.data.errors)
                 }

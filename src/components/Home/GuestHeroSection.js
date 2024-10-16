@@ -1,7 +1,7 @@
 "use client"
 
-import TeamSearchModal from "../TeamSearchModal";
-import RandomTeamMarquee from "./RandomTeamMarquee";
+import TeamSearchModal from "../TeamSearchModal"
+import RandomTeamMarquee from "./RandomTeamMarquee"
 import Link from 'next/link'
 
 const colors = [
