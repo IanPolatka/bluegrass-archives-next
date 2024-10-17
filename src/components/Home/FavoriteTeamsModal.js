@@ -71,7 +71,7 @@ function FavoriteTeamsModal({getGames}) {
                         <DialogTitle>Select Your Favorite Teams</DialogTitle>
                         <DialogDescription>
                             <p className="mb-3">By selecting your favorite teams you will see their scores first on the home page.</p>
-                            <hr className="border-gray-300" />
+                            <hr className="mb-4 border-gray-300" />
                             <div className="space-y-3">
                             <div className="space-y-3 h-3/4">
                                 {teams.length > 0 ?
