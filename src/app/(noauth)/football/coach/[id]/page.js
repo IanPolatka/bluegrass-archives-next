@@ -27,7 +27,8 @@ export async function generateMetadata({ params }) {
     const coachSummary = await getCoachSummary(params.id)
 
     return {
-        title: 'Bluegrass Archives - ' + coachSummary.data[0].Coach.name
+        title: 'Bluegrass Archives - ' + coachSummary.data[0].Coach.name,
+        description: 'Bluegrass Archives - KHSAA Summary of coach ' + coachSummary.data[0].Coach.name
     }
 }
 
