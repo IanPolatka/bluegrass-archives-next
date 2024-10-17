@@ -41,6 +41,7 @@ const PasswordReset = () => {
             <div className="relative flex flex-col min-h-screen">
                 <div className="flex items-center justify-center w-full h-screen px-4 themes-wrapper">
                     <div className="w-full max-w-sm p-4 bg-white border border-gray-300 rounded-md">
+                        <ApplicationLogo  />
                         {/* Session Status */}
                         <AuthSessionStatus className="mb-4" status={status} />
 

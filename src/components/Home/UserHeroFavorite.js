@@ -46,8 +46,8 @@ export default function UserHeroFavorite({team, favoriteIds, getFavorites, getFa
                     src={`${team.logo}`}
                     height={32}
                     width={32}
-                    alt={`${team.logo}`}
-                    title={`${team.logo}`}
+                    alt={`${team.name}`}
+                    title={`${team.name}`}
                 />
                 <div>
                     <div className="font-semibold">{team.name}</div>
