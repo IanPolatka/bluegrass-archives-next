@@ -38,6 +38,24 @@ function formatDate(value) {
     )
 }
 
+export async function generateMetadata({ params }) {
+    const history = await getTeamHistory(params.slug, params.opponentslug)
+
+    return {
+        title: 'Bluegrass Archives - Football History ' + history.data[0].Team.name + ' vs ' + history.data[0].Opponent.name,
+        description: 'Historical information between ' + history.data[0].Team.name + ' and ' + history.data[0].Opponent.name,
+        openGraph: {
+            title: 'Bluegrass Archives - Football History ' + history.data[0].Team.name + ' vs ' + history.data[0].Opponent.name,
+            url: '/football/history/' + history.data[0].Team.slug + '/' + history.data[0].Opponent.slug,
+            images: [
+                {
+                    url: history.data[0].Team.logo
+                }
+            ],
+        },
+    }
+}
+
 
 export default async function FootballHistory({ params }) {
     const history = await getTeamHistory(params.slug, params.opponentslug)

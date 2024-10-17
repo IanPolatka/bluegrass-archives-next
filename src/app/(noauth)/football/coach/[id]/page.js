@@ -23,6 +23,14 @@ async function getTeamSummary(id) {
     return res.json()
 }
 
+export async function generateMetadata({ params }) {
+    const coachSummary = await getCoachSummary(params.id)
+
+    return {
+        title: 'Bluegrass Archives - ' + coachSummary.data[0].Coach.name
+    }
+}
+
 export default async function CoachSummary({ params }) {
     const coachSummary = await getCoachSummary(params.id)
     const teamsSummary = await getTeamSummary(params.id)
@@ -35,26 +43,26 @@ export default async function CoachSummary({ params }) {
                     <div className="lg:grid lg:grid-cols-12 lg:gap-8">
                         <div className="col-span-4 mb-4">
                             <div className="bg-white border border-gray-300 rounded-md">
-                                {coachSummary.data.map(({game, index}) => (
-                                    <div className="p-4 space-y-4 divide-y-[1px] divide-dashed divide-gray-300" key={index}>
+
+                                    <div className="p-4 space-y-4 divide-y-[1px] divide-dashed divide-gray-300">
                                         <div>
                                             <div className="text-sm text-gray-500">Coach Name</div>
-                                            <h1 className="text-lg font-semibold">{game.Coach.name}</h1>
+                                            <h1 className="text-lg font-semibold">{coachSummary.data[0].Coach.name}</h1>
                                         </div>
                                         <div className="pt-4">
                                             <div className="text-sm text-gray-500">KHSAA Seasons</div>
-                                            <h3 className="text-lg font-semibold">{game["Total Seasons"]}</h3>
+                                            <h3 className="text-lg font-semibold">{coachSummary.data[0]["Total Seasons"]}</h3>
                                         </div>
                                         <div className="pt-4">
                                             <div className="text-sm text-gray-500">Total Wins</div>
-                                            <h3 className="text-lg font-semibold">{game["Total Wins"]}</h3>
+                                            <h3 className="text-lg font-semibold">{coachSummary.data[0]["Total Wins"]}</h3>
                                         </div>
                                         <div className="pt-4">
                                             <div className="text-sm text-gray-500">Total Losses</div>
-                                            <h3 className="text-lg font-semibold">{game["Total Losses"]}</h3>
+                                            <h3 className="text-lg font-semibold">{coachSummary.data[0]["Total Losses"]}</h3>
                                         </div>
                                     </div>
-                                ))}
+
                             </div>
                         </div>
                         <div className="col-span-8">
