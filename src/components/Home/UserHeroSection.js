@@ -74,18 +74,28 @@ export default function UserHeroSection({user}) {
                                             </svg>
                                             Your Favorites
                                         </h2>
+                                        {games.length > 0 && <FavoriteTeamsModal getGames={getGames} />}
+                                    </div>
+                                    {games.length > 0 && <p className="text-gray-500">The most recent games of your favorite teams</p>}
+                                </div>
+                                {!games.length > 0 &&
+                                    <div className="p-4 py-8 m-4 text-center border border-gray-300 border-dashed rounded-md">
+                                        <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full lg:w-32 lg:h-32 bg-amber-600/10">
+                                            <div className="flex w-8 h-8 border border-dashed rounded-md lg:w-16 lg:h-16 border-amber-600"></div>
+                                        </div>
+                                        <div className="mb-4 text-base font-semibold">You haven't selected any favorites yet</div>
                                         <FavoriteTeamsModal getGames={getGames} />
                                     </div>
-                                    <p className="text-gray-500">The most recent games of your favorite teams</p>
-                                </div>
+                                }
                                 <div className="gap-4 m-4 space-y-4 text-sm sm:space-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-3">
-                                    {games.map((game, index) => {
-                                        return (
-                                            <div key={index} className={`p-4 space-y-2 font-semibold border-[1px] rounded-md border-green-600 bg-green-50/50`}>
-                                                <div>
-                                                    <div className="">{formatGameDate(game.game_date)}</div>
-                                                    {game.is_winner_set == 'set' &&
-                                                        <div className="text-xs text-right uppercase">Final</div>}
+                                        {games.map((game, index) => {
+                                            return (
+                                                <div key={index} className={`p-4 space-y-2 font-semibold border-[1px] rounded-md border-green-600 bg-green-50/50`}>
+                                                    <div>
+                                                        <div className="">{formatGameDate(game.game_date)}</div>
+                                                        {game.is_winner_set == 'set' &&
+                                                            <div className="text-xs text-right uppercase">Final</div>
+                                                        }
                                                         <div className="flex items-center justify-between">
                                                             <div className="flex items-center space-x-2">
                                                                 <div className={`h-[48px] w-[48px] bg-${game.away_team.team_color}-600/10 rounded-full p-2`}>
